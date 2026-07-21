@@ -1,0 +1,6 @@
+{
+  "name": "CareerPilot AI OS",
+  "description": "Autonomous AI Career Operating System with 7 Multi-Agent pipelines, persistent cross-session memory, and Human-in-the-Loop workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

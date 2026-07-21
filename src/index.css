@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* Glassmorphism Design System Core */
+@layer utilities {
+  .glass-card {
+    background: rgba(10, 15, 30, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .glass-card-hover:hover {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(147, 51, 234, 0.3);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 0 0 24px 2px rgba(139, 92, 246, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .glass-card-purple {
+    background: rgba(15, 10, 35, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card-purple:hover {
+    background: rgba(15, 10, 35, 0.55);
+    border-color: rgba(168, 85, 247, 0.35);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 0 0 24px 2px rgba(168, 85, 247, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .glass-card-sky {
+    background: rgba(10, 20, 40, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card-sky:hover {
+    background: rgba(10, 20, 40, 0.55);
+    border-color: rgba(14, 165, 233, 0.35);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 0 0 24px 2px rgba(14, 165, 233, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .glass-input {
+    background: rgba(5, 5, 10, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-input:focus {
+    outline: none;
+    background: rgba(10, 15, 30, 0.7);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15), 0 0 15px 0 rgba(56, 189, 248, 0.1);
+  }
+
+  .glass-button-primary {
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.8) 0%, rgba(79, 70, 229, 0.8) 100%);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px 0 rgba(147, 51, 234, 0.25);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-button-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.95) 0%, rgba(79, 70, 229, 0.95) 100%);
+    box-shadow: 0 6px 20px 0 rgba(147, 51, 234, 0.35), 0 0 12px 2px rgba(79, 70, 229, 0.2);
+    transform: scale(1.02);
+  }
+
+  .glass-button-secondary {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-button-secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.01);
+  }
+}
+
+/* Custom Scrollbars to blend with premium glass background */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 5, 10, 0.15);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Base custom interactive effects */
+.custom-glow-pulse {
+  animation: glow-pulse 3s infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 10px 0 rgba(147, 51, 234, 0.1), 0 0 2px 0 rgba(56, 189, 248, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 20px 4px rgba(147, 51, 234, 0.2), 0 0 8px 1px rgba(56, 189, 248, 0.1);
+  }
+}
+
+/* Premium text gradients */
+.text-gradient-purple-sky {
+  background: linear-gradient(135deg, #c084fc 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-sky-indigo {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #fbbf24 0%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* World-class light mode overrides */
+.light {
+  color-scheme: light;
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+.light .glass-card:hover, .light .glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(147, 51, 234, 0.25) !important;
+  box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.06), 0 0 20px 2px rgba(139, 92, 246, 0.08) !important;
+}
+
+.light .glass-input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}
+
+.light .glass-input:focus {
+  border-color: rgba(56, 189, 248, 0.6) !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15) !important;
+}
+
+.light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.light .text-white, .light .text-white, .light h1, .light h2, .light h3, .light h4 {
+  color: #0f172a !important;
+}
+
+.light .text-slate-100, .light .text-slate-200, .light .text-slate-300 {
+  color: #1e293b !important;
+}
+
+.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Light theme high-contrast neon text mappings */
+.light .text-sky-300, .light .text-sky-400 {
+  color: #0284c7 !important;
+}
+
+.light .text-purple-300, .light .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+.light .text-indigo-300, .light .text-indigo-400 {
+  color: #4f46e5 !important;
+}
+
+.light .text-emerald-300, .light .text-emerald-400 {
+  color: #16a34a !important;
+}
+
+.light .text-amber-300, .light .text-amber-400 {
+  color: #d97706 !important;
+}
+
+.light .text-red-300, .light .text-red-400 {
+  color: #dc2626 !important;
+}
+
+.light .text-gradient-purple-sky {
+  background: linear-gradient(135deg, #7c3aed 0%, #0284c7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.light .text-gradient-sky-indigo {
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.light .text-gradient-sunset {
+  background: linear-gradient(135deg, #d97706 0%, #dc2626 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.light .border-white\/5, 
+.light .border-white\/10, 
+.light .border-white\/20, 
+.light .border-white\/30,
+.light .border-slate-800 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light .border-sky-500\/20, .light .border-sky-500\/30 {
+  border-color: rgba(14, 165, 233, 0.25) !important;
+}
+
+.light .border-purple-500\/20, .light .border-purple-500\/30 {
+  border-color: rgba(168, 85, 247, 0.25) !important;
+}
+
+.light .border-indigo-500\/20, .light .border-indigo-500\/30 {
+  border-color: rgba(99, 102, 241, 0.25) !important;
+}
+
+.light .border-emerald-500\/20, .light .border-emerald-500\/30 {
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+.light .border-amber-500\/20, .light .border-amber-500\/30 {
+  border-color: rgba(245, 158, 11, 0.25) !important;
+}
+
+.light .bg-slate-950\/40, 
+.light .bg-white\/5, 
+.light .bg-white\/10,
+.light .bg-slate-900\/50,
+.light .bg-slate-950\/20,
+.light .bg-slate-900\/20 {
+  background-color: rgba(15, 23, 42, 0.03) !important;
+}
+
+.light .bg-white\/\[0\.03\] {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+
+.light .bg-slate-950 {
+  background-color: #f8fafc !important;
+}
+
+.light .bg-slate-950\/80, .light .bg-slate-950\/60, .light .bg-slate-950\/50, .light .bg-slate-900\/80 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+.light .bg-white\/\[0\.01\], .light .bg-white\/\[0\.02\], .light .bg-white\/\[0\.03\], .light .bg-white\/\[0\.05\] {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+
+.light .stroke-white\/5, .light .stroke-white\/10 {
+  stroke: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light svg text {
+  fill: #334155 !important;
+}
+
+.light .stroke-slate-800 {
+  stroke: #e2e8f0 !important;
+}
+
+/* Recharts Light theme grid lines & axis lines */
+.light .recharts-cartesian-grid-horizontal line,
+.light .recharts-cartesian-grid-vertical line {
+  stroke: rgba(15, 23, 42, 0.04) !important;
+}
+
+.light .recharts-xAxis line,
+.light .recharts-yAxis line {
+  stroke: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light .recharts-polar-grid-concentric path,
+.light .recharts-polar-grid-angle line {
+  stroke: rgba(15, 23, 42, 0.08) !important;
+}
+
+
+
